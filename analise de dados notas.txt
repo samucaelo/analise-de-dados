@@ -1,0 +1,62 @@
+# passo a passo do projeto
+# passo 1: importar a base de dados de clientes 
+# passo 2: visualizar a base de dados
+# passo 3: corrigir as cagadas da base de dados
+# valores vazios - erros de preenchimento
+# colunas inúteis - informações que não te ajudam, te atrapalham
+# passo 4: analise dos cancelamentos
+# passo 5: analise da causa do cancelamento 
+
+pacote de biblioteca usado para trabalhar com base dados no python: pandas 
+graficos e dashboards: plotly 
+
+(%pip install pandas numby openpyxl nbformat ipykernel plotly)
+
+display <- msm função do print so q deixa a visualização melhor da tabela exibida
+
+"import pandas as pd" <- da um apelido pro pandas (pd)
+
+tabela.drop(columns=["nomeDaColuna", "", ""]) <- tira uma coluna da tabela. <- entre colchetes: mais de uma coluna deletada
+
+tabela = tabeladropna()
+na = NaN = not a number = valor vazio
+
+tabela[" "] <- selecionar a coluna da tabela (por meio de colchetes); tabela[" "].value_counts() <- contar os valores da coluna <- pode colocar dentro de um display,
+para visualizar:  display(tabela[" "].value_counts())
+
+
+normalizar é a msm coisa que "pegar o percentual":display(tabela[" "].value_counts(normalize=True))
+
+formatar em percentual: .map("{:.1%}".format) -> display(tabela[" "].value_counts(normalize=True).map("{:.1%}".format)) -> .1 = 1 casa decimal
+em percentual.
+
+para importar o "plotly", devemos usar o (import plotly.express as px) 
+
+para criar um grafico precisa de 2 passos:
+#passo 1 cria um grafico
+grafico = px.
+#passo 2 exibir o grafico
+grafico.show()
+
+comparação de dados com cor (exemplo): grafico = px.histogram(tabela, x="idade", color="cancelou") <- o cara que cancelou
+vai exibir no grafico de uma cor,  e o que nao cancelou, vai exibir no grafico de outra cor.
+
+for coluna in tabela.columns <- para cada coluna nas colunas da minha tabela, crie  o grafico e exibe o grafico.
+
+
+for coluna in tabela.columns:
+	grafico = px.histogram(tabela, x=coluna, color="cancelou")
+	grafico.show()
+
+"""todo grafico as pessoas tem que conseguir bater o olho no grafico e entender o que ele ta dizendo"""
+
+.map <- aplica uma função em todos os itens de uma lista.
+
+para filtrarmos no python, devemos colocar uma condição: tabela["condição"]!=" " <- qual coluna 
+tem que ser qual valor; <- != diferente de; 
+
+
+
+
+
+
